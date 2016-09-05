@@ -1,10 +1,11 @@
-''''''''''''''''''''''''''''''''''
+
 # Module for managing platforms
-''''''''''''''''''''''''''''''''''
+
+
 
 import pygame
 
-from spritesheet_fucntions import Spritesheet
+from spritesheet_functions import SpriteSheet
 
 # These constants define the platform types
 # Name of file
@@ -24,7 +25,7 @@ class Platform(pygame.sprite.Sprite):
         """ Platform constructor. Assumes constructed with user passing in
             an array of 5 numbers like what's defined at the top of this
             code. """
-        super().__init__()
+
 
         sprite_sheet = SpriteSheet("tiles_spritesheet.png")
         #Grabs image for this platform
@@ -70,9 +71,9 @@ class MovingPlatform(Platform):
 
             if self.change_x < 0:
                 self.player.rect.right = self.rect.left
-                else:
-                    #in case we are moving left, do the opposite
-                    self.player.rect.left = self.rect.right
+            else:
+                #in case we are moving left, do the opposite
+                self.player.rect.left = self.rect.right
 
         # Move up/down
         self.rect.y += self.change_y
@@ -94,7 +95,7 @@ class MovingPlatform(Platform):
             self.change_y *= -1
 
         cur_pos = self.rect.x - self.level.world_shift
-        if cur_pos < self.boundary_left or cur_pos > self.boundary_right
+        if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
             self.change_x *= -1
 
 

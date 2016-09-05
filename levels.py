@@ -7,19 +7,19 @@ class Level():
     """ This is a generic super-class used to define a level.
         Create a child class for each level, with level-specific info. """
 
+    # List of sprites used in all levels.
+    platform_list = None
+    enemy_list = None
+
+    # Background image
+    background = None
+
+     # How far has this world scrolled left / right
+    world_shift = 0
+    level_limit = -1000
+
     def __init__(self, player):
         """ Constructor. Pass in a handle to player. Needed for when moving platforms collide with player."""
-
-        # List of sprites used in all levels.
-        self.platform_list = None
-        self.enemy_list = None
-
-        # Background image
-        self.background = None
-
-        # How far has this world scrolled left / right
-        self.world_shift = 0
-        self.level_limit = -1000
         self.platform_list = pygame.sprite.Group()
         self.enemy_list = pygame.sprite.Group()
         self.player = player
@@ -61,7 +61,7 @@ class Level():
 
 # Create platforms for the level
 class Level_01(Level):
-""" Definition for level 1. """
+
     def __init__(self, player):
         """ Create level 1. """
 
@@ -107,7 +107,7 @@ class Level_01(Level):
 
 # Create platforms for the level
 class Level_02(Level):
-""" Definition for level 2. """
+
     def __init__(self, player):
         """ Create level 1. """
         
