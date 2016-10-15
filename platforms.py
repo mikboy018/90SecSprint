@@ -25,7 +25,7 @@ class Platform(pygame.sprite.Sprite):
         """ Platform constructor. Assumes constructed with user passing in
             an array of 5 numbers like what's defined at the top of this
             code. """
-
+        super().__init__()
 
         sprite_sheet = SpriteSheet("tiles_spritesheet.png")
         #Grabs image for this platform
